@@ -29,23 +29,30 @@ const InteractiveBackground: React.FC = () => {
       color: string
 
       constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
-        this.size = Math.random() * 5 + 1
-        this.speedX = Math.random() * 3 - 1.5
-        this.speedY = Math.random() * 3 - 1.5
-        this.color = `rgba(0, 128, 0, 0.2)`
+        const canvasWidth = canvas?.width ?? 0;
+        const canvasHeight = canvas?.height ?? 0;
+      
+        this.x = Math.random() * canvasWidth;
+        this.y = Math.random() * canvasHeight;
+        this.size = Math.random() * 5 + 1;
+        this.speedX = Math.random() * 3 - 1.5;
+        this.speedY = Math.random() * 3 - 1.5;
+        this.color = `rgba(0, 128, 0, 0.2)`;
       }
+      
 
       update() {
-        this.x += this.speedX + (mouseX - canvas.width / 2) * 0.01
-        this.y += this.speedY + (mouseY - canvas.height / 2) * 0.01
+        if (canvas) {
+          this.x += this.speedX + (mouseX - canvas.width / 2) * 0.01
+          this.y += this.speedY + (mouseY - canvas.height / 2) * 0.01
+        }
 
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1
+        if (canvas && (this.x < 0 || this.x > canvas.width)) this.speedX *= -1
+        if (canvas && (this.y < 0 || this.y > canvas.height)) this.speedY *= -1
       }
 
       draw() {
+        if (!ctx) return
         ctx.fillStyle = this.color
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)

@@ -56,8 +56,8 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <Button asChild className="hidden md:block">
-          <a href="#contact">Get Started</a>
+        <Button asChild className="hidden md:block rounded-xl">
+          <Link href="#contact">Get Started</Link>
         </Button>
       </div>
     </header>

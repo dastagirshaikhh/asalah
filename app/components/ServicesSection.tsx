@@ -1,12 +1,13 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, JSX } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Users, BookOpen, PenTool, Globe } from "lucide-react"
 import { Skeleton } from "@/components/ui/skeleton"
+import Link from "next/link"
 
 interface Service {
   id: string
@@ -100,7 +101,7 @@ export default function ServicesSection() {
         Our Services
       </motion.h2>
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        className="px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         variants={containerVariants}
         initial="hidden"
         animate={controls}
@@ -138,8 +139,8 @@ export default function ServicesSection() {
                     <p className="text-gray-600">{service.description}</p>
                   </CardContent>
                   <CardFooter>
-                    <Button asChild className="w-full">
-                      <a href="#packages">View Packages</a>
+                    <Button asChild className="w-full rounded-xl">
+                      <Link href="#packages">View Packages</Link>
                     </Button>
                   </CardFooter>
                 </Card>

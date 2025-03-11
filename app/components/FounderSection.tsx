@@ -21,7 +21,7 @@ export default function FounderSection() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/0 rounded-3xl transform -rotate-6"></div>
             <Image
-              src="/placeholder.svg?height=600&width=600"
+              src="https://images.pexels.com/photos/2738919/pexels-photo-2738919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt="Kasmira Saudagar"
               width={600}
               height={600}

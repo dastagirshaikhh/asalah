@@ -121,7 +121,7 @@ export default function ContactSection() {
             </div>
             <Button
               type="submit"
-              className="w-full bg-primary text-white hover:bg-green-600 transition-colors relative overflow-hidden group"
+              className="w-full bg-primary text-white hover:bg-green-600 transition-colors relative overflow-hidden group rounded-xl"
               disabled={isSubmitting || isSubmitted}
             >
               <span className="relative z-10 flex items-center justify-center">

@@ -5,6 +5,7 @@ import { motion, useAnimation, useInView } from "framer-motion"
 import { Check, Users, PenTool, Globe, Award } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import Link from "next/link"
 
 const servicePackages = [
   {
@@ -140,7 +141,7 @@ const servicePackages = [
     ],
   },
   {
-    category: "PR, Media & Authority Building",
+    category: "PR Media & Authority Building",
     packages: [
       {
         name: "Podcast Guest Outreach",
@@ -207,13 +208,13 @@ export default function PackagesSection() {
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12">
           {servicePackages.map((category, index) => (
             <Button
               key={index}
               variant={activeCategory === index ? "default" : "outline"}
               onClick={() => handleCategoryChange(index)}
-              className="mb-2"
+              className="mb-2 rounded-xl"
             >
               {category.category.split(" ")[0]}
             </Button>
@@ -241,9 +242,8 @@ export default function PackagesSection() {
               onHoverEnd={() => setHoveredCard(null)}
             >
               <Card
-                className={`relative h-full ${
-                  hoveredCard === index ? "scale-105" : "scale-100"
-                } transition-all duration-300`}
+                className={`relative h-full ${hoveredCard === index ? "scale-105" : "scale-100"
+                  } transition-all duration-300`}
               >
                 <div className="absolute inset-0 rounded-lg p-[1px] bg-gradient-to-br from-green-200 to-green-50">
                   <div className="absolute inset-0 rounded-lg bg-white"></div>
@@ -262,8 +262,8 @@ export default function PackagesSection() {
                     <div className="inline-flex p-3 rounded-full bg-green-100 text-primary mb-4">{pkg.icon}</div>
                     <h3 className="text-xl font-bold mb-2">{pkg.name}</h3>
                     <div className="text-3xl font-bold text-gray-800">{pkg.price}</div>
-                    {pkg.sessions && <div className="text-sm text-gray-500 mt-1">{pkg.sessions}</div>}
-                    {pkg.platforms && <div className="text-sm text-gray-500 mt-1">{pkg.platforms}</div>}
+                    {("sessions" in pkg) && <div className="text-sm text-gray-500 mt-1">{(pkg as { sessions: string }).sessions}</div>}
+                    {("platforms" in pkg) && <div className="text-sm text-gray-500 mt-1">{(pkg as { platforms: string }).platforms}</div>}
                   </div>
 
                   <div className="flex-grow">
@@ -283,8 +283,8 @@ export default function PackagesSection() {
                     </ul>
                   </div>
 
-                  <Button asChild className="w-full">
-                    <a href="#contact">Get Started</a>
+                  <Button asChild className="w-full rounded-xl">
+                    <Link href="#contact">Contact for Pricing</Link>
                   </Button>
                 </CardContent>
               </Card>

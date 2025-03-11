@@ -29,7 +29,7 @@ export default function FounderSection() {
             />
           </div>
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Founder's Note</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Founder&apos;s Note</h2>
             <p className="text-lg mb-6 text-gray-700">
               Asalah was born from a deep desire to empower Muslim professionals. In recent times, the rise of
               Islamophobia has led many of us to face discrimination—especially in the workplace. I, too, experienced it
@@ -44,7 +44,7 @@ export default function FounderSection() {
             <p className="text-lg mb-6 text-gray-700">
               But Alhamdulillah, when Allah is your priority, what seems like a loss is never truly a loss. I have spent
               the past three years as a freelance writer, building my career remotely. And in this journey, I have
-              witnessed how Allah's help comes in ways beyond our imagination.
+              witnessed how Allah&apos;s help comes in ways beyond our imagination.
             </p>
             <p className="text-lg mb-6 text-gray-700">
               With Asalah, I want to help my brothers and sisters establish personal brands that are strong, authentic,

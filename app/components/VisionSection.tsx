@@ -76,16 +76,16 @@ export default function VisionSection() {
               visibility, influence, and credibility in their industries.
             </p>
             <p className="text-lg mb-6 text-gray-700">
-              Our faith-driven branding approach integrates Qur'anic and Sunnah-based leadership principles, enabling
+              Our faith-driven branding approach integrates Qur&apos;anic and Sunnah-based leadership principles, enabling
               clients to monetize their expertise, enhance their reputation, and create a lasting impact.
             </p>
             <p className="text-lg mb-6 text-gray-700">
-              We're on a mission to empower 1 lakh students globally with free personal branding training, giving them
+              We&apos;re on a mission to empower 1 lakh students globally with free personal branding training, giving them
               the tools to build powerful, authentic brands and unlock exciting opportunities even before they step into
               the professional world.
             </p>
             <p className="text-lg font-semibold text-primary">
-              At Asalah, we don't just build brands—we shape legacies of excellence and faith.
+              At Asalah, we don&apos;t just build brands—we shape legacies of excellence and faith.
             </p>
           </motion.div>
 
@@ -110,11 +110,11 @@ export default function VisionSection() {
               At Asalah, we are on a mission to provide free personal branding training to 1 lakh students worldwide,
               equipping them with the tools to build authentic, powerful personal brands that unlock exciting career
               opportunities before they even enter the professional world. By giving students the confidence and skills
-              to stand out early, we're creating a generation of influential, high-impact leaders who will thrive in
+              to stand out early, we&apos;re creating a generation of influential, high-impact leaders who will thrive in
               their careers.
             </p>
             <p className="text-xl font-semibold text-center text-primary mt-6">
-              Empowering Tomorrow's Leaders with Personal Branding!
+              Empowering Tomorrow&apos;s Leaders with Personal Branding!
             </p>
           </motion.div>
         </motion.div>

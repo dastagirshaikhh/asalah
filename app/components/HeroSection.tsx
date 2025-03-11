@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Users, Award, BookOpen, Target } from "lucide-react"
+import Link from "next/link"
 
 const FloatingParticle = ({ delay }: { delay: number }) => {
   const [mounted, setMounted] = useState(false)
@@ -99,7 +100,7 @@ export default function HeroSection() {
                   onMouseLeave={() => setIsHovered(false)}
                   asChild
                 >
-                  <a href="#contact">
+                  <Link href="#contact">
                     <span className="relative z-10">Get Started Today</span>
                     <motion.span
                       className="absolute inset-0 bg-gradient-to-r from-green-600 to-green-500"
@@ -114,7 +115,7 @@ export default function HeroSection() {
                     >
                       →
                     </motion.span>
-                  </a>
+                  </Link>
                 </Button>
               </motion.div>
             </div>

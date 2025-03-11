@@ -1,21 +1,22 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Menu } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
@@ -30,10 +31,40 @@ export default function Header() {
             <Menu />
           </Button>
         </div>
-        <nav
-          className={`${isMenuOpen ? "block" : "hidden"} md:block absolute md:relative top-full left-0 w-full md:w-auto bg-white md:bg-transparent`}
-        >
-          <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 p-4 md:p-0">
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.nav
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="absolute top-full left-0 w-full bg-white md:hidden shadow-md"
+            >
+              <ul className="flex flex-col space-y-4 p-4">
+                {[
+                  { href: "#vision", label: "Vision" },
+                  { href: "#services", label: "Services" },
+                  { href: "#about", label: "About" },
+                  { href: "#contact", label: "Contact" },
+                ].map((item, index) => (
+                  <motion.li
+                    key={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ delay: index * 0.1, duration: 0.3 }}
+                  >
+                    <Link href={item.href} className="hover:text-primary transition-colors">
+                      {item.label}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.nav>
+          )}
+        </AnimatePresence>
+        <nav className="hidden md:block">
+          <ul className="flex flex-row space-x-8">
             <li>
               <Link href="#vision" className="hover:text-primary transition-colors">
                 Vision
@@ -61,6 +92,5 @@ export default function Header() {
         </Button>
       </div>
     </header>
-  )
+  );
 }
-

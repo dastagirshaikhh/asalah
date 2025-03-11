@@ -9,6 +9,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Loader2, Send, CheckCircle } from "lucide-react"
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from '@/lib/email'
+import emailjs from '@emailjs/browser'
+
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -41,7 +44,17 @@ export default function ContactSection() {
     setIsSubmitting(true)
     // Simulating an API call
     await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log("Form submitted:", formData)
+    // console.log("Form submitted:", formData)
+    await emailjs.send(
+      EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message
+      },
+      EMAILJS_PUBLIC_KEY
+    )
     setIsSubmitting(false)
     setIsSubmitted(true)
     // Reset form after 3 seconds
@@ -95,7 +108,7 @@ export default function ContactSection() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="bg-white/80 border-green-200 text-gray-800 placeholder-gray-500"
+                className="bg-white/80 border-green-200 text-gray-800 placeholder-gray-500 rounded-tl-xl rounded-br-xl"
               />
             </div>
             <div className="mb-4">
@@ -106,7 +119,7 @@ export default function ContactSection() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="bg-white/80 border-green-200 text-gray-800 placeholder-gray-500"
+                className="bg-white/80 border-green-200 text-gray-800 placeholder-gray-500 rounded-bl-xl rounded-tr-xl"
               />
             </div>
             <div className="mb-4">
@@ -116,7 +129,7 @@ export default function ContactSection() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="bg-white/80 border-green-200 text-gray-800 placeholder-gray-500"
+                className="bg-white/80 border-green-200 text-gray-800 placeholder-gray-500 rounded-tl-xl rounded-br-xl"
               />
             </div>
             <Button

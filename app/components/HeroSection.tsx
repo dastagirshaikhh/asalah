@@ -6,25 +6,34 @@ import { Button } from "@/components/ui/button"
 import { Users, Award, BookOpen, Target } from "lucide-react"
 
 const FloatingParticle = ({ delay }: { delay: number }) => {
+  const [mounted, setMounted] = useState(false)
+  const particleRef = useRef<HTMLDivElement>(null)
   const y = useMotionValue(0)
   const ySpring = useSpring(y, { stiffness: 100, damping: 10 })
+  const xPosition = useRef(Math.random() * 100)
 
   useEffect(() => {
+    setMounted(true)
+
     const moveParticle = () => {
       y.set(Math.random() * -100)
       setTimeout(moveParticle, Math.random() * 5000 + 3000)
     }
+
     setTimeout(moveParticle, delay)
   }, [y, delay])
+
+  if (!mounted) return null
 
   return (
     <motion.div
       className="absolute w-1 h-1 bg-primary rounded-full"
       style={{
-        x: `${Math.random() * 100}%`,
+        x: `${xPosition.current}%`,
         y: ySpring,
         opacity: 0.5,
       }}
+      ref={particleRef}
     />
   )
 }

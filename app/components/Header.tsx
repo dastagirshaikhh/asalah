@@ -6,6 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { Satisfy } from "next/font/google";
+
+const satisfy = Satisfy({ weight: ["400"], subsets: ["latin"] });
+
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,7 +28,7 @@ export default function Header() {
       className={`fixed w-full z-10 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-3xl font-bold tracking-tighter text-primary">
+        <Link href="/" className={`text-4xl font-bold tracking-tighter text-primary ${satisfy.className}`}>
           Asalah
         </Link>
         <div className="md:hidden">

@@ -1,9 +1,8 @@
 import "./globals.css"
 import type { Metadata } from "next"
-import { Playfair_Display, Poppins } from "next/font/google"
-import type React from "react" // Import React
+import { Poppins } from "next/font/google"
+import type React from "react"
 
-const playfair = Playfair_Display({ subsets: ["latin"] })
 const poppins = Poppins({ weight: ["300", "400", "500", "600", "700"], subsets: ["latin"] })
 
 export const metadata: Metadata = {

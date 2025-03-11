@@ -86,11 +86,20 @@ export default function HeroSection() {
                 transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
               />
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-600 max-w-3xl mx-auto">
+            {/* <p className="text-xl md:text-2xl mb-8 text-gray-600 max-w-3xl mx-auto hidden md:block">
               Build a strong personal brand that aligns with your faith, values, and professional expertise. With the
               right branding strategy, you can enhance your visibility, attract the right audience, and establish
               yourself as a trusted industry leader.
+            </p> */}
+            <p className="text-xl md:text-2xl mb-8 text-gray-600 max-w-3xl mx-auto md:hidden">
+              Build a strong personal brand that aligns with your faith, values, and professional expertise.
             </p>
+            <p className="text-xl md:text-2xl mb-8 text-gray-600 max-w-3xl mx-auto hidden md:block">
+              Build a strong personal brand that aligns with your faith, values, and professional expertise. With the right
+              branding strategy, you can enhance your visibility, attract the right audience, and establish yourself as a
+              trusted industry leader.
+            </p>
+
             <div className="relative inline-block">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative z-10">
                 <Button
